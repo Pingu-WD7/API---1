@@ -2,7 +2,6 @@ package org.example.eventos.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.example.eventos.dto.EventoRequestDTO;
 import org.example.eventos.dto.EventoResponseDTO;
 import org.example.eventos.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,8 @@ import java.util.List;
 @RequestMapping("/eventos")
 public class EventoController {
 
-  private final EventoService service;
+    @Autowired
+    private EventoService service;
 
     @Operation(summary = "Lista todos os eventos")
     @GetMapping

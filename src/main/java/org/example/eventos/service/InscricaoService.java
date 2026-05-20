@@ -37,7 +37,7 @@ public class InscricaoService {
     }
 
     public InscricaoResponseDTO cadastrar(InscricaoRequestDTO dto) {
-        Evento evento = repository.findById(dto.idEvento()
+        Evento evento = repository.findById(dto.idEvento).orElseThrow() -> RecursoNaoEncontradoException (" "))
                 //TODO: adicionar a exception
 
         Inscricao inscricao = new Inscricao();
@@ -56,7 +56,7 @@ public class InscricaoService {
         Inscricao inscricao = repository.findById(id).orElseThrow(() -> new RuntimeException(" Inscricao n encontrada"));
                 //TODO: adicionar a exception
 
-        Evento evento = eventoRepository.findById(dto.eventoId())
+        Evento evento = eventoRepository.findById(dto.eventoId());
                 //TODO: adicionar a exception
 
         inscricao.setNomeParticipante(dto.nomeParticipante());
@@ -70,7 +70,7 @@ public class InscricaoService {
     }
 
     public void deletar(Long id) {
-        Inscricao inscricao = inscricaoRepository.findById(id)
+        Inscricao inscricao = inscricaoRepository.findById(id);
                     //TODO: adicionar a exception
 
         //TODO: chamar método de deletar do repository
